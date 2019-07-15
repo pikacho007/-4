@@ -1,49 +1,24 @@
 <div id="root"></div>
-2
 <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-3
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-4
 <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
-5
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-6
 <script type="text/babel">
-7
   function SayHello(props) {
-8
       return (
-9
         <div>
-10
           Hello {props.firstName}{'  '}
-11
           {props.firstName} {props.lastName || 'Unknown'}!
-12
           </div>
-13
       )
-14
     }
-15
-​
-16
     SayHello.propsTypes = {
-17
       firstName: PropTypes.string.isRequired,
-18
       lastName: PropTypes.string.isRequired,
-19
     }
-20
     ReactDOM.render(
-21
     <SayHello firstName={true} />,
-22
     document.getElementById('root')
-23
     )
-24
 </script>
-25
 </body>
