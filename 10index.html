@@ -1,0 +1,59 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  <script type="text/babel">
+    class StopWatch extends React.Component {
+    state = {lapse: 0,runnning: false}
+    handleRunClick = () => {
+      this.setState(state => {
+        if (state.runnning) {
+          clearInterval(this.timer)
+        } else {
+          const startTime = Date.now() - this.state.lapse
+          this.timer = setInterval(() => {
+            this.setState({
+              lapse: Date.now() - startTime,
+            })
+          })
+    }
+    return {runnning: !state.runnning}
+  })
+}
+    handleClearClick = () => {
+      clearInterval(this.timer)
+      this.setState({lapse: 0, runnning: false})
+    }
+    render() {
+      const {lapse, runnning} = this.state
+      const buttonStyles = {
+      border: '1px solid #ccc',
+      background: '#fff',
+      fontsize: '2em',
+      padding: 15,
+      margin: 5,
+      width: 200,
+    }
+
+    return (
+    <div style={{textAlign: 'center'}}>
+      <label
+       style={{fontsize: '5em', display: 'block'}}>
+       {lapse}ms
+     </label>
+      <button onClick={this.handleRunClick} style={buttonStyles}>
+        {running ? 'Stop' : 'Start'}
+      </button>
+      <button onClick={this.handleClearClick} style={buttonStyles}>Clear</button>
+    </div>
+    )
+  }
+}
+    const element = <StopWatch />
+    ReactDOM.render (
+      element,
+    document.getElementById('root')
+  )
+  </script>
+</body>
