@@ -4,14 +4,14 @@
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 
 <body>
-<style>
-.box--small {
+  <style>
+    .box--small {
   width: 60px;
   height: 60px;
 }
 </style>
 
-<script type="text/babel">
+  <script type="text/babel">
     function Box({
       style,
       size,
@@ -22,7 +22,7 @@
       return (
         <div
         className={'box ${className} ${sizeClassName}'}
-        style={{paddingLeft: 20}, ...style}}
+        style={{paddingLeft: 20, ...style}}
         {...rest}
         />
       )
@@ -49,10 +49,10 @@
       </Box>
     </div>
     )
-  )
+
   ReactDOM.render (
   element,
   document.getElementById('root')
   )
   </script>
-  </body>
+</body>
