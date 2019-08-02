@@ -1,0 +1,47 @@
+<body>
+  <div class="your-element" data-tilt></div><!-- vanilla-tiltを使うにはこれを書かなきゃいけないみたい -->
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  <script type="text/javascript" src="vanilla-tilt.js"></script>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class Tilt extends React.Component {
+      componentDidMount() {
+        VanillaTilt.init(this.rootNode, {
+          max: 10,
+          speed: 400,
+          glare: true,
+          'max-glare': 0.5,
+        })
+      }
+      render () {
+        return (
+        <div
+          ref={node => (this.rootNode = node)}
+          clasName="tilt-root"
+          >
+          <div className="tilt-child">
+            <div {...this.props} />
+          </div>
+        </div>
+        )
+      }
+    }
+    const element = (
+    <div className="totally-centered">
+      <Tilt>
+        <div className="totally-centered">
+          vanilla-tilt.js
+        </div>
+      </Tilt>
+    </div>
+    )
+
+    ReactDOM.render(
+    element,
+    document.getElementById('root'),
+    )
+  </script>
+</body>
