@@ -57,7 +57,7 @@
         error: this.props.getErrorMessage(''),
     })
   }
-    render(
+    reactDOM.render(
     <NameForm
       getErrorMessage = {value => {
         if (value.length < 3) {
@@ -69,7 +69,7 @@
         return null
       }}
     />,
-    document.getElementById('root'),
-    )
+    document.getElementById("root")
+  );
     </script>
 </body>
